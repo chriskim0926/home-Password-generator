@@ -25,9 +25,6 @@ if(firstAnswer > 128){
 }else if(firstAnswer< 8){
     alert ("Password Character must be 8 or more");
 }
-if(firstAnswer !== "number"){
-    alert ("you must enter numberic value");
-}
 var secondAnswer = prompt(questions.questionTwo);
 console.log("Second Answer", secondAnswer)
 var thirdAnswer = prompt(questions.questionThree);
@@ -83,9 +80,13 @@ function generatePassword(){
     }
     if(secondAnswer === "n" && thirdAnswer === "n" && fourthAnswer === "n" && fifthAnswer === "n"){
         return "you must choose at lease one set of values, please refresh the page and try it again";
-    } else{
-    return result
-    }
+    }else if (firstAnswer < 8){
+        return "Password Character must be 8 or more, please refresh the page and try it again";
+    }else if(firstAnswer > 128){
+        return "Password Character must be less than 128, please refresh the page and try it again";
+    }else{
+        return result
+        }
 }
 
 
